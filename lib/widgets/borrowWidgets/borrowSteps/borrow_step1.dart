@@ -24,7 +24,7 @@ class BorrowStep1 extends StatelessWidget {
         children: [
           Text("Skal du låne med en partner?", style: AppTextStyles.pageTitle),
 
-          Spacer(),
+          const SizedBox(height: AppSizes.spacing * 4),
 
           //Option buttons
           OptionButton(

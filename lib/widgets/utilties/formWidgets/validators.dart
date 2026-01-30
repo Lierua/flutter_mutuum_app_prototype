@@ -20,4 +20,32 @@ class AppValidators {
   static String? countryDK(String? value) {
     return minChars(value, 3, "Et land er påkrævet");
   }
+
+  static String? addSavingVal(String? value) {
+    final v = (value ?? "").trim();
+
+    if (v.isEmpty) {
+      return null;
+    }
+
+    if (!RegExp(r"^\d+$").hasMatch(v)) {
+      return "Opsparing værdien skal være et positivt tal";
+    }
+
+    return null;
+  }
+
+  static String? addDebtVal(String? value) {
+    final v = (value ?? "").trim();
+
+    if (v.isEmpty) {
+      return null;
+    }
+
+    if (!RegExp(r"^\d+$").hasMatch(v)) {
+      return "Supplerende gæld bedes være positivt tal";
+    }
+
+    return null;
+  }
 }
