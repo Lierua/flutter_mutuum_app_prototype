@@ -37,7 +37,7 @@ class _BorrowStep9State extends State<BorrowStep9> {
                           style: AppTextStyles.pageTitle,
                         ),
                         TextSpan(
-                          text: "2.000.000 kr",
+                          text: "2.000 kr",
                           style: AppTextStyles.pageTitle.copyWith(
                             color: AppColors.contrastColor,
                             fontWeight: FontWeight.bold,
