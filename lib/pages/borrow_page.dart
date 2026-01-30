@@ -10,7 +10,8 @@ import 'package:flutter_prototype/widgets/borrowWidgets/borrowSteps/borrow_step7
 import 'package:flutter_prototype/widgets/borrowWidgets/borrowSteps/borrow_step8.dart';
 import 'package:flutter_prototype/widgets/borrowWidgets/borrowSteps/borrow_step9.dart';
 import 'package:flutter_prototype/widgets/borrowWidgets/debt_list.dart';
-import 'package:flutter_prototype/widgets/utilties/nav_button.dart';
+import 'package:flutter_prototype/widgets/borrowWidgets/summary_list.dart';
+import 'package:flutter_prototype/widgets/utilties/nav_button_second.dart';
 import 'package:flutter_prototype/widgets/utilties/progress_bar.dart';
 
 class BorrowPage extends StatefulWidget {
@@ -32,6 +33,8 @@ class _BorrowPageState extends State<BorrowPage> {
   String address = "";
   String country = "";
   String postalCode = "";
+  String addSavings = "";
+  String addDebt = "";
 
   // Debt list state
   final List<DebtItem> debts = [
@@ -44,6 +47,13 @@ class _BorrowPageState extends State<BorrowPage> {
     DebtItem(checked: false, title: "Lønkonto", amount: 25000),
     DebtItem(checked: false, title: "Budget konto", amount: 8500),
     DebtItem(checked: false, title: "Opsparingskonto", amount: 10000),
+  ];
+
+  // Summary list state
+  final List<SummaryItem> summaryList = [
+    SummaryItem(title: "Lønkonto", amount: 25000),
+    SummaryItem(title: "Budget konto", amount: 8500),
+    SummaryItem(title: "Opsparingskonto", amount: 10000),
   ];
 
   // Helper to compute sum
@@ -76,6 +86,10 @@ class _BorrowPageState extends State<BorrowPage> {
     debugPrint("postalCode: $postalCode");
     debugPrint("debtSum: ${debtSum.toStringAsFixed(0)}");
     debugPrint("savingsSum: ${savingsSum.toStringAsFixed(0)}");
+    debugPrint("address: $address");
+    debugPrint("country: $country");
+    debugPrint("addSavings: $addSavings");
+    debugPrint("addDebt: $addDebt");
     debugPrint("─────────────────────");
   }
 
@@ -214,7 +228,7 @@ class _BorrowPageState extends State<BorrowPage> {
 
                       /// Go to BorrowStep1
                       Spacer(),
-                      NavButton(
+                      NavButtonSecond(
                         label: "Låneberegner",
                         onPressed: () => _nextStep(0),
                       ),
@@ -278,12 +292,24 @@ class _BorrowPageState extends State<BorrowPage> {
                 BorrowStep7(
                   list: savings,
                   sum: savingsSum,
+                  addSavings: addSavings,
+                  addSavingsChanged: (v) => setState(() => addSavings = v),
+
                   onToggle: _toggleSavings,
                   onNext: () => _nextStep(7),
                 ),
 
-                BorrowStep8(),
-                BorrowStep9(),
+                BorrowStep8(
+                  list: debts,
+                  debtSum: debtSum,
+                  addDebt: addDebt,
+                  addSavingsChanged: (v) => setState(() => addSavings = v),
+
+                  onToggle: _toggleDebt,
+                  onNext: () => _nextStep(7),
+                ),
+
+                BorrowStep9(list: summaryList, onNext: () => _nextStep(7)),
               ],
             ),
           ),

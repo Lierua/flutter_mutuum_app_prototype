@@ -75,7 +75,7 @@ class _BorrowStep6State extends State<BorrowStep6> {
 
             NavButton(
               label: "Forsæt",
-              onPressed: _submit, // validates before next
+              onPressed: widget.onNext == null ? null : _submit,
             ),
             const SizedBox(height: AppSizes.spacing),
           ],

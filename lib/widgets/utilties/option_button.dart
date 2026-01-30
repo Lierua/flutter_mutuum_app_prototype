@@ -23,21 +23,21 @@ class OptionButton extends StatelessWidget {
         height: 70,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: selected ? AppColors.primeColor : AppColors.whiteColor,
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(color: AppColors.lightColor, width: 1),
-          boxShadow: [
+          color: selected ? AppColors.primeColor : Colors.transparent,
+          borderRadius: BorderRadius.circular(25),
+          border: Border.all(color: AppColors.primeColor, width: 3),
+          /*           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(selected ? 0.15 : 0.1),
               blurRadius: selected ? 10 : 6,
               offset: const Offset(0, 3),
             ),
-          ],
+          ], */
         ),
         child: Text(
           label,
           style: TextStyle(
-            color: selected ? Colors.white : AppColors.darkColor,
+            color: selected ? Colors.white : AppColors.primeColor,
             fontWeight: FontWeight.bold,
             fontSize: AppSizes.h3,
           ),

@@ -24,7 +24,7 @@ class InputField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FormField<String>(
-      initialValue: controller?.text, // 👈 sync form state
+      initialValue: controller?.text, // sync form state
       validator: validator,
       builder: (field) {
         final hasError = field.hasError;

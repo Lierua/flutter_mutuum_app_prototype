@@ -23,7 +23,6 @@ class NavButton extends StatelessWidget {
       final isValid = formKey?.currentState?.validate() ?? true;
       if (!isValid) return;
     }
-
     onPressed?.call();
   }
 
@@ -31,47 +30,51 @@ class NavButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isDisabled = onPressed == null;
 
-    return GestureDetector(
-      onTap: isDisabled ? null : () => _handleTap(context),
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 150),
-        height: 50,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: isDisabled ? AppColors.lightColor : AppColors.contrastColor,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(isDisabled ? 0.05 : 0.2),
-              blurRadius: 6,
-              offset: const Offset(0, 3),
-            ),
-          ],
-        ),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (icon != null) ...[
-              Icon(
-                icon,
-                color: isDisabled
-                    ? AppColors.whiteColor
-                    : AppColors.openingButtonTextColor,
+    return Center(
+      child: GestureDetector(
+        onTap: isDisabled ? null : () => _handleTap(context),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 150),
+          height: 50,
+          padding: const EdgeInsets.symmetric(horizontal: 75), //  magic
+          decoration: BoxDecoration(
+            color: isDisabled
+                ? AppColors.lightColor.withOpacity(0.8)
+                : AppColors.primeColor,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(isDisabled ? 0.05 : 0.2),
+                blurRadius: 6,
+                offset: const Offset(0, 3),
               ),
-              const SizedBox(width: 8),
             ],
-            Text(
-              label,
-              style: TextStyle(
-                color: isDisabled
-                    ? AppColors.whiteColor
-                    : AppColors.openingButtonTextColor,
-                fontWeight: FontWeight.bold,
-                fontSize: AppSizes.h3,
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min, // 👈 important
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (icon != null) ...[
+                Icon(
+                  icon,
+                  color: isDisabled
+                      ? AppColors.whiteColor
+                      : AppColors.openingButtonTextColor,
+                ),
+                const SizedBox(width: 8),
+              ],
+              Text(
+                label,
+                style: TextStyle(
+                  color: isDisabled
+                      ? AppColors.whiteColor
+                      : AppColors.openingButtonTextColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: AppSizes.h3,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

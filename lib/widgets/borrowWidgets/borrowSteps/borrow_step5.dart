@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_prototype/theme/app-theme-variables.dart';
 import 'package:flutter_prototype/widgets/utilties/nav_button.dart';
 import 'package:flutter_prototype/widgets/utilties/formWidgets/inputfield.dart';
-import 'package:flutter_prototype/widgets/utilties/nav_button.dart';
 import 'package:flutter_prototype/widgets/utilties/formWidgets/validators.dart';
 
 class BorrowStep5 extends StatefulWidget {
@@ -120,7 +119,10 @@ class _BorrowStep5State extends State<BorrowStep5> {
 
             const Spacer(),
 
-            NavButton(label: "Forsæt", onPressed: _submit),
+            NavButton(
+              label: "Forsæt",
+              onPressed: widget.onNext == null ? null : _submit,
+            ),
             const SizedBox(height: AppSizes.spacing),
           ],
         ),

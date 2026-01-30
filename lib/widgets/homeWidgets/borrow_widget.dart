@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prototype/pages/Main_page.dart';
 import 'package:flutter_prototype/theme/app-theme-variables.dart';
-import 'package:flutter_prototype/widgets/utilties/nav_button.dart';
+import 'package:flutter_prototype/widgets/utilties/nav_button_second.dart';
 
 class BorrowWidget extends StatelessWidget {
   const BorrowWidget({super.key});
@@ -94,7 +94,7 @@ class BorrowWidget extends StatelessWidget {
           SizedBox(height: AppSizes.spacingInside),
 
           //Låne knap
-          NavButton(
+          NavButtonSecond(
             label: "Gå til lån",
             icon: Icons.monetization_on,
             onPressed: () {
