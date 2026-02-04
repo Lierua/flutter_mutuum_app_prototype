@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prototype/theme/app-theme-variables.dart';
-import 'package:flutter_prototype/widgets/utilties/circle_chart.dart';
+import 'package:flutter_prototype/widgets/utilities/circle_chart.dart';
 
 class ScoreWidget extends StatefulWidget {
   const ScoreWidget({super.key});

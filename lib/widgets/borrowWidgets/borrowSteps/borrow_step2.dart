@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prototype/theme/app-theme-variables.dart';
-import 'package:flutter_prototype/widgets/utilties/nav_button.dart';
-import 'package:flutter_prototype/widgets/utilties/option_button.dart';
+import 'package:flutter_prototype/widgets/utilities/nav_button.dart';
+import 'package:flutter_prototype/widgets/utilities/option_button.dart';
 
 class BorrowStep2 extends StatelessWidget {
   final String borrowFor;

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_prototype/pages/opening_page.dart';
+import 'package:provider/provider.dart';
+
+import 'pages/opening_page.dart';
+import 'pages/data_page.dart';
+import 'widgets/utilities/navigation_provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,9 +14,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: OpeningPage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => BorrowData()),
+        ChangeNotifierProvider(create: (_) => NavigationProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: const OpeningPage(),
+      ),
     );
   }
 }

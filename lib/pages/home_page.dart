@@ -11,41 +11,33 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
+
       body: ListView(
         children: [
           Padding(
             padding: const EdgeInsets.all(AppSizes.bodyPadding),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start, // <-- add this
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Center(
-                  child: Text(
-                    "Velkommen Steve",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: AppSizes.h1,
-                      fontWeight: FontWeight.w600,
-                      color: AppColors.primeColor,
-                    ),
+                Text(
+                  "Hej Steve",
+                  style: TextStyle(
+                    fontSize: 45,
+                    fontWeight: FontWeight.w600,
+                    color: AppColors.primeColor,
                   ),
                 ),
+                SizedBox(height: AppSizes.spacing),
+
+                const BorrowWidget(),
 
                 SizedBox(height: AppSizes.spacing),
 
-                Text("Oversigt", style: AppTextStyles.pageTitle),
-                SizedBox(height: AppSizes.spacingInside),
-
-                BorrowWidget(),
+                const SavingWidget(),
 
                 SizedBox(height: AppSizes.spacing),
-                Text("Opsparingsplaner", style: AppTextStyles.overTitle),
-                SizedBox(height: AppSizes.spacingInside),
 
-                SavingWidget(),
-
-                SizedBox(height: AppSizes.spacing),
-                ScoreWidget(),
+                const ScoreWidget(),
               ],
             ),
           ),

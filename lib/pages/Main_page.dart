@@ -1,45 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_prototype/pages/borrow_page.dart';
-import 'package:flutter_prototype/pages/home_page.dart';
-import 'package:flutter_prototype/pages/profil_page.dart';
-import 'package:flutter_prototype/pages/savings_page.dart';
-import 'package:flutter_prototype/theme/app-theme-variables.dart';
+import 'package:provider/provider.dart';
 
-class MainPage extends StatefulWidget {
-  final int initialIndex;
+import '../theme/app-theme-variables.dart';
 
-  const MainPage({super.key, this.initialIndex = 0});
+import 'home_page.dart';
+import 'borrow_page.dart';
+import 'savings_page.dart';
+import 'profil_page.dart';
 
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
+import '../widgets/utilities/navigation_provider.dart';
 
-class _MainPageState extends State<MainPage> {
-  late int _selectedIndex;
-
-  // 1️⃣ Create the page list
-  final List<Widget> _pages = const [
-    HomePage(),
-    BorrowPage(),
-    SavingsPage(),
-    ProfilPage(),
-  ];
-
-  @override
-  void initState() {
-    super.initState();
-    _selectedIndex = widget.initialIndex;
-  }
-
-  // 2️⃣ Add the tap handler
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+class MainPage extends StatelessWidget {
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final nav = context.watch<NavigationProvider>();
+
+    // Pages list
+    final List<Widget> pages = [
+      const HomePage(),
+      const BorrowPage(),
+      const SavingsPage(),
+      const ProfilPage(),
+    ];
+
     return Scaffold(
       backgroundColor: Colors.transparent,
 
@@ -51,13 +36,17 @@ class _MainPageState extends State<MainPage> {
             colors: [AppColors.topColor, AppColors.bottomColor],
           ),
         ),
-        child: _pages[_selectedIndex],
+
+        child: pages[nav.index],
       ),
 
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: AppColors.menuBgColor,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+
+        currentIndex: nav.index,
+
+        onTap: nav.setIndex,
+
         type: BottomNavigationBarType.fixed,
 
         selectedItemColor: AppColors.selectedColor,

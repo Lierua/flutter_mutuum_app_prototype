@@ -5,41 +5,42 @@ import 'package:flutter_prototype/widgets/utilities/formWidgets/inputfield.dart'
 import 'package:flutter_prototype/widgets/utilities/formWidgets/validators.dart';
 import 'package:flutter_prototype/widgets/utilities/nav_button.dart';
 
-class BorrowStep7 extends StatefulWidget {
+class SavingsStep5 extends StatefulWidget {
   final List<DebtItem> list;
-  final double sum;
-  final String addSavings;
+  final double debtSum;
+  final String addDebt;
+
   final ValueChanged<int> onToggle;
-  final ValueChanged<String> addSavingsChanged;
+  final ValueChanged<String> addDebtChanged;
   final VoidCallback onNext;
 
-  const BorrowStep7({
+  const SavingsStep5({
     super.key,
     required this.list,
-    required this.sum,
-    required this.addSavings,
+    required this.debtSum,
+    required this.addDebt,
     required this.onToggle,
-    required this.addSavingsChanged,
+    required this.addDebtChanged,
     required this.onNext,
   });
 
   @override
-  State<BorrowStep7> createState() => _BorrowStep7State();
+  State<SavingsStep5> createState() => _SavingsStep5State();
 }
 
-class _BorrowStep7State extends State<BorrowStep7> {
+class _SavingsStep5State extends State<SavingsStep5> {
   final _formKey = GlobalKey<FormState>();
-  late final TextEditingController _addSavingCtrl;
+  late final TextEditingController _addDebtCtrl;
 
   @override
   void initState() {
     super.initState();
-    _addSavingCtrl = TextEditingController(text: widget.addSavings.toString());
+    _addDebtCtrl = TextEditingController(text: widget.addDebt);
   }
 
   @override
   void dispose() {
-    _addSavingCtrl.dispose();
+    _addDebtCtrl.dispose();
     super.dispose();
   }
 
@@ -47,8 +48,7 @@ class _BorrowStep7State extends State<BorrowStep7> {
     final ok = _formKey.currentState?.validate() ?? false;
     if (!ok) return;
 
-    widget.addSavingsChanged(_addSavingCtrl.text.trim());
-
+    widget.addDebtChanged(_addDebtCtrl.text.trim());
     widget.onNext();
   }
 
@@ -65,8 +65,10 @@ class _BorrowStep7State extends State<BorrowStep7> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height: 56),
+
                   Text(
-                    "Forbind til eksisterende opsparingskonti",
+                    "Forbind til din eksisterende gæld",
                     style: AppTextStyles.pageTitle,
                   ),
 
@@ -74,23 +76,22 @@ class _BorrowStep7State extends State<BorrowStep7> {
 
                   DebtList(
                     list: widget.list,
-                    sum: widget.sum,
+                    sum: widget.debtSum,
                     onToggle: widget.onToggle,
-                    label:
-                        "Vælg hvilke konti der skal indgå i din opsparingsplan",
+                    label: "Vælg hvilke konti der skal indgå i din gæld",
                   ),
 
                   SizedBox(height: AppSizes.spacing),
 
-                  Text("Supplerende opsparing:", style: AppTextStyles.pText),
+                  Text("Supplerende gæld:", style: AppTextStyles.pText),
                   SizedBox(height: AppSizes.spacingInside),
 
                   InputField(
-                    hintText: "Indtast supplerende opsparing",
-                    controller: _addSavingCtrl,
+                    hintText: "Indtast supplerende gæld",
+                    controller: _addDebtCtrl,
                     keyboardType: TextInputType.number,
                     textInputAction: TextInputAction.done,
-                    validator: AppValidators.addSavingVal,
+                    validator: AppValidators.addDebtVal,
                   ),
 
                   SizedBox(height: AppSizes.spacing),
@@ -104,7 +105,9 @@ class _BorrowStep7State extends State<BorrowStep7> {
               child: Column(
                 children: [
                   const Spacer(),
+
                   NavButton(label: "Forsæt", onPressed: _submit),
+
                   SizedBox(height: AppSizes.spacing),
                 ],
               ),

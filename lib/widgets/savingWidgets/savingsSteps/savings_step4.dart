@@ -5,15 +5,16 @@ import 'package:flutter_prototype/widgets/utilities/formWidgets/inputfield.dart'
 import 'package:flutter_prototype/widgets/utilities/formWidgets/validators.dart';
 import 'package:flutter_prototype/widgets/utilities/nav_button.dart';
 
-class BorrowStep7 extends StatefulWidget {
+class SavingsStep4 extends StatefulWidget {
   final List<DebtItem> list;
   final double sum;
   final String addSavings;
+
   final ValueChanged<int> onToggle;
   final ValueChanged<String> addSavingsChanged;
   final VoidCallback onNext;
 
-  const BorrowStep7({
+  const SavingsStep4({
     super.key,
     required this.list,
     required this.sum,
@@ -24,17 +25,17 @@ class BorrowStep7 extends StatefulWidget {
   });
 
   @override
-  State<BorrowStep7> createState() => _BorrowStep7State();
+  State<SavingsStep4> createState() => _SavingsStep4State();
 }
 
-class _BorrowStep7State extends State<BorrowStep7> {
+class _SavingsStep4State extends State<SavingsStep4> {
   final _formKey = GlobalKey<FormState>();
   late final TextEditingController _addSavingCtrl;
 
   @override
   void initState() {
     super.initState();
-    _addSavingCtrl = TextEditingController(text: widget.addSavings.toString());
+    _addSavingCtrl = TextEditingController(text: widget.addSavings);
   }
 
   @override
@@ -48,7 +49,6 @@ class _BorrowStep7State extends State<BorrowStep7> {
     if (!ok) return;
 
     widget.addSavingsChanged(_addSavingCtrl.text.trim());
-
     widget.onNext();
   }
 
@@ -65,8 +65,10 @@ class _BorrowStep7State extends State<BorrowStep7> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  SizedBox(height: 56),
+
                   Text(
-                    "Forbind til eksisterende opsparingskonti",
+                    "Forbind til dine opsparingskonti",
                     style: AppTextStyles.pageTitle,
                   ),
 
@@ -104,7 +106,9 @@ class _BorrowStep7State extends State<BorrowStep7> {
               child: Column(
                 children: [
                   const Spacer(),
+
                   NavButton(label: "Forsæt", onPressed: _submit),
+
                   SizedBox(height: AppSizes.spacing),
                 ],
               ),

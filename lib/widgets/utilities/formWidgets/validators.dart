@@ -48,4 +48,18 @@ class AppValidators {
 
     return null;
   }
+
+  static String? savingAmountVal(String? value) {
+    final v = (value ?? "").trim();
+
+    if (v.isEmpty) {
+      return "Feltet bedes udfyldes";
+    }
+
+    if (!RegExp(r"^\d+$").hasMatch(v)) {
+      return "Indtastet værdi bedes være positivt tal";
+    }
+
+    return null;
+  }
 }

@@ -9,12 +9,15 @@ class OpeningPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.openingbgColor,
+
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(45),
+
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
+
             children: [
               // Image
               Image.asset(
@@ -33,11 +36,11 @@ class OpeningPage extends StatelessWidget {
                   fontSize: 35,
                   fontWeight: FontWeight.bold,
                   color: AppColors.openingTextColor,
-
                   height: 1.2,
                 ),
               ),
-              SizedBox(height: 12),
+
+              const SizedBox(height: 12),
 
               // Subtitle
               Text(
@@ -48,6 +51,7 @@ class OpeningPage extends StatelessWidget {
                   color: AppColors.openingTextColor.withOpacity(0.7),
                 ),
               ),
+
               const SizedBox(height: 38),
 
               // Button
@@ -58,12 +62,15 @@ class OpeningPage extends StatelessWidget {
                     MaterialPageRoute(builder: (_) => const MainPage()),
                   );
                 },
+
                 child: Container(
                   height: 70,
                   alignment: Alignment.center,
+
                   decoration: BoxDecoration(
                     color: AppColors.openingButtonColor,
                     borderRadius: BorderRadius.circular(10),
+
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.2),
@@ -72,6 +79,7 @@ class OpeningPage extends StatelessWidget {
                       ),
                     ],
                   ),
+
                   child: const Text(
                     "Kom i gang",
                     style: TextStyle(

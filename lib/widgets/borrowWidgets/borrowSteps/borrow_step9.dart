@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prototype/theme/app-theme-variables.dart';
 import 'package:flutter_prototype/widgets/borrowWidgets/summary_list.dart';
-import 'package:flutter_prototype/widgets/utilties/nav_button.dart';
+import 'package:flutter_prototype/widgets/utilities/nav_button.dart';
+import 'package:flutter_prototype/widgets/utilities/navigation_provider.dart';
+import 'package:provider/provider.dart';
 
 class BorrowStep9 extends StatefulWidget {
   final List<SummaryItem> list;
@@ -53,8 +55,17 @@ class _BorrowStep9State extends State<BorrowStep9> {
 
                   SizedBox(height: AppSizes.spacing),
 
-                  Text("Supplerende gæld:", style: AppTextStyles.pText),
-                  SizedBox(height: AppSizes.spacingInside),
+                  Text(
+                    "Hvis du gerne vil låne for mere, kan vi hjælpe dig med at oprette en opsparingsplan.",
+                    style: AppTextStyles.overTitle,
+                  ),
+                  SizedBox(height: AppSizes.spacing),
+                  NavButton(
+                    label: "Opret opsparingsplan",
+                    onPressed: () {
+                      context.read<NavigationProvider>().setIndex(2);
+                    },
+                  ),
 
                   SizedBox(height: AppSizes.spacing),
                 ],

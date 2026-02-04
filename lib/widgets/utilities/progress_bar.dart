@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_prototype/widgets/utilties/step_circle.dart';
+import 'package:flutter_prototype/widgets/utilities/step_circle.dart';
 
 class ProgressBar extends StatelessWidget {
   final int currentStep;

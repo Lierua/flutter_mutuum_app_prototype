@@ -9,14 +9,15 @@ class AppColors {
   // gradient colors
   static const Color topColor = Color.fromARGB(255, 240, 238, 233);
   static const Color bottomColor = Color.fromARGB(255, 224, 219, 212);
-  // Color.fromARGB(255, 223, 219, 213);
 
   // Call to Action
   static const Color primeColor = Color.fromARGB(255, 6, 59, 105);
   static const Color contrastColor = Color.fromARGB(255, 255, 171, 46);
 
+  // reached
+  static const Color reachedColor = Color.fromARGB(255, 12, 210, 55);
   // positive
-  static const Color positiveColor = Color.fromARGB(255, 12, 210, 55);
+  static const Color positiveColor = Color.fromARGB(255, 178, 242, 16);
   // neutral
   static const Color neutralColor = Color.fromARGB(255, 253, 232, 0);
   // negative
@@ -24,7 +25,7 @@ class AppColors {
 
   // monotones
   static const Color whiteColor = Color.fromARGB(255, 255, 255, 255);
-  static const Color lightColor = Color.fromARGB(255, 109, 114, 122);
+  static const Color lightColor = Color.fromARGB(255, 121, 124, 130);
   static const Color darkColor = Color.fromARGB(255, 59, 69, 81);
 
   // menu colors
@@ -38,7 +39,7 @@ class AppSizes {
   static const double h1 = 30;
   static const double h2 = 26;
   static const double h3 = 20;
-  static const double body = 18;
+  static const double body = 16;
   static const double caption = 12;
 
   //padding
@@ -74,7 +75,7 @@ class AppTextStyles {
 
   static const TextStyle pageTitle = TextStyle(
     fontSize: AppSizes.h1,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.w500,
     color: AppColors.darkColor,
   );
 
@@ -86,7 +87,7 @@ class AppTextStyles {
 
   static const TextStyle pText = TextStyle(
     fontSize: AppSizes.body,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w400,
     color: AppColors.darkColor,
   );
 

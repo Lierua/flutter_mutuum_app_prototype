@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_prototype/theme/app-theme-variables.dart';
-import 'package:flutter_prototype/widgets/borrowWidgets/debt_list.dart';
-import 'package:flutter_prototype/widgets/utilties/formWidgets/inputfield.dart';
-import 'package:flutter_prototype/widgets/utilties/formWidgets/validators.dart';
-import 'package:flutter_prototype/widgets/utilties/nav_button.dart';
+import 'package:flutter_prototype/widgets/utilities/debt_list.dart';
+import 'package:flutter_prototype/widgets/utilities/formWidgets/inputfield.dart';
+import 'package:flutter_prototype/widgets/utilities/formWidgets/validators.dart';
+import 'package:flutter_prototype/widgets/utilities/nav_button.dart';
 
 class BorrowStep8 extends StatefulWidget {
   final List<DebtItem> list;

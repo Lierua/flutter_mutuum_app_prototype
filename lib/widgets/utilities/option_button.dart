@@ -25,7 +25,7 @@ class OptionButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: selected ? AppColors.primeColor : Colors.transparent,
           borderRadius: BorderRadius.circular(25),
-          border: Border.all(color: AppColors.primeColor, width: 3),
+          border: Border.all(color: AppColors.primeColor, width: 2),
           /*           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(selected ? 0.15 : 0.1),

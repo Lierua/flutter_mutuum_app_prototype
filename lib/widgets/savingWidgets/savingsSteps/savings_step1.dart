@@ -3,15 +3,15 @@ import 'package:flutter_prototype/theme/app-theme-variables.dart';
 import 'package:flutter_prototype/widgets/utilities/nav_button.dart';
 import 'package:flutter_prototype/widgets/utilities/option_button.dart';
 
-class BorrowStep4 extends StatelessWidget {
-  final String knownAddress;
-  final ValueChanged<String> onBorrowChanged;
+class SavingsStep1 extends StatelessWidget {
+  final String savingWithMore;
+  final ValueChanged<String> onSavingsChanged;
   final VoidCallback? onNext;
 
-  const BorrowStep4({
+  const SavingsStep1({
     super.key,
-    required this.knownAddress,
-    required this.onBorrowChanged,
+    required this.savingWithMore,
+    required this.onSavingsChanged,
     required this.onNext,
   });
 
@@ -22,27 +22,28 @@ class BorrowStep4 extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Kender du adressen på din nye bolig",
-            style: AppTextStyles.pageTitle,
-          ),
+          SizedBox(height: 56),
 
-          Spacer(),
+          Text("Vil du spare op med flere?", style: AppTextStyles.pageTitle),
+
+          const SizedBox(height: AppSizes.spacing * 4),
 
           //Option buttons
           OptionButton(
             label: "Ja",
-            selected: knownAddress == "ja",
-            onTap: () => onBorrowChanged("ja"),
+            selected: savingWithMore == "ja",
+            onTap: () => onSavingsChanged("ja"),
           ),
 
           const SizedBox(height: AppSizes.spacing * 1.5),
 
           OptionButton(
             label: "Nej",
-            selected: knownAddress == "nej",
-            onTap: () => onBorrowChanged("nej"),
+            selected: savingWithMore == "nej",
+            onTap: () => onSavingsChanged("nej"),
           ),
+
+          SizedBox(height: AppSizes.spacing),
 
           const Spacer(),
 
